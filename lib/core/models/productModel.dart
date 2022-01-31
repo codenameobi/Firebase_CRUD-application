@@ -1,9 +1,9 @@
 class Product {
-  final String productId;
-  final double unit;
-  final String name;
+  final String? productId;
+  final double? unit;
+  final String? name;
 
-  Product({required this.productId, required this.unit, required this.name});
+  Product({this.productId, this.unit, this.name});
 
   // ignore: empty_constructor_bodies
   Map<String, dynamic> toMap() {

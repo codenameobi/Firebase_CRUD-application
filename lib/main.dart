@@ -2,9 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:productapp/core/providers/product_provider.dart';
 import 'package:productapp/core/services/firestore_service.dart';
+import 'package:productapp/ui/screens/products.dart';
 import 'package:provider/provider.dart';
-
-import 'ui/screens/products.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         StreamProvider(
           create: (context) => firestoreService.getProducts(),
           initialData: const [],
-        )
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
