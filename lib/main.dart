@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:productapp/core/models/productModel.dart';
 import 'package:productapp/core/providers/product_provider.dart';
 import 'package:productapp/core/services/firestore_service.dart';
 import 'package:productapp/ui/screens/products.dart';
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ProductProvider()),
-        StreamProvider(
-          create: (context) => firestoreService.getProducts(),
+        StreamProvider<List<Product>>.value(
+          value: firestoreService.getProducts(),
           initialData: const [],
         ),
       ],

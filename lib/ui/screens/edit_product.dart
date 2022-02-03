@@ -65,7 +65,7 @@ class _EditProductState extends State<EditProduct> {
                     productProvider.changeName(value);
                   }),
               TextField(
-                  controller: nameController,
+                  controller: unitController,
                   decoration: const InputDecoration(hintText: 'Product Unit'),
                   onChanged: (value) {
                     productProvider.changeUnit(value);
@@ -74,6 +74,7 @@ class _EditProductState extends State<EditProduct> {
                 height: 20.0,
               ),
               RaisedButton(
+                child: const Text('Save'),
                 onPressed: () {
                   productProvider.saveProduct();
                   Navigator.of(context).pop();

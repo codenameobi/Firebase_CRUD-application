@@ -11,14 +11,14 @@ import 'package:uuid/uuid.dart';
 
 class ProductProvider with ChangeNotifier {
   final firestoreService = FirestoreService();
-  late String _name;
-  late double _unit;
-  late String _productId;
+  String? _name;
+  double? _unit;
+  String? _productId;
   var uuid = const Uuid();
 
   //Getters
-  String get name => _name;
-  double get unit => _unit;
+  String? get name => _name;
+  double? get unit => _unit;
 
   //Setters
   changeName(String value) {

@@ -26,17 +26,28 @@ class Products extends StatelessWidget {
             )
           ],
         ),
-        body: (products != null)
-            ? ListView.builder(itemBuilder: (context, index) {
-                return ListTile(
+        body: Builder(builder: (BuildContext context) {
+          return ListView.builder(
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(width: 0.5, color: Colors.grey)),
+                child: ListTile(
                   title: Text(products[index].name!),
                   trailing: Text(products[index].unit.toString()),
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => EditProduct(products[index])));
+                        builder: (_) => EditProduct(
+                              products[index],
+                            )));
                   },
-                );
-              })
-            : Center(child: CircularProgressIndicator()));
+                ),
+              );
+            },
+          );
+        }));
   }
 }
